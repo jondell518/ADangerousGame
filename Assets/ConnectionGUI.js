@@ -60,6 +60,6 @@ function OnGUI () {
 function OnConnectedToServer () {
 	// Notify our objects that the level and the network are ready
 	for (var go : GameObject in FindObjectsOfType(GameObject))
-	go.SendMessage("OnNetworkLoadedLevel", 
-	SendMessageOptions.DontRequireReceiver); 
+		go.SendMessage("OnNetworkLoadedLevel", 
+		SendMessageOptions.DontRequireReceiver); 
 }
