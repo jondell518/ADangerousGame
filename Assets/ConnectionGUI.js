@@ -5,6 +5,21 @@ var useNAT = false;
 var yourIP = "";
 var yourPort = "";
 
+
+function startServer(){
+	Debug.Log("Starting Server!");
+	
+	Network.InitializeServer(32, listenPort, !Network.HavePublicAddress);
+	
+
+}
+
+function OnServerInitialized(){
+	Debug.Log("Server Initialized");
+
+}
+
+
 function OnGUI () {
 	// Checking if you are connected to the server or not
 	if (Network.peerType == NetworkPeerType.Disconnected) {
@@ -16,9 +31,7 @@ function OnGUI () {
 			Network.Connect(remoteIP, remotePort);
 		}
 		if (GUI.Button (new Rect(10,50,100,30),"Start Server")) {
-			Network.useNat = useNAT;
-			// Creating server
-			Network.InitializeServer(32, listenPort);
+			startServer();
 
 			// Notify our objects that the level and the network is ready
 			for (var go : GameObject in FindObjectsOfType(GameObject)) {
