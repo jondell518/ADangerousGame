@@ -1,10 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../Laundry/Missile Command/Assets/Standard Assets/MouseLookAt.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ConnectionGUI.js">
     <Files>
-      <File FileName="Assets/ConnectionGUI.js" Line="140" Column="1" />
-      <File FileName="Assets/PlayerScript.js" Line="1" Column="1" />
-      <File FileName="../../../Laundry/Missile Command/Assets/Standard Assets/MouseLookAt.cs" Line="73" Column="3" />
+      <File FileName="Assets\ConnectionGUI.js" Line="31" Column="93" />
+      <File FileName="Assets\PlayerScript.js" Line="21" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

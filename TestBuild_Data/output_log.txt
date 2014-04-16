@@ -11,9 +11,34 @@ Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\M
 Loading C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
 Loading C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.051 seconds
+- Completed reload, in  0.052 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+Terrain splat 0 is null.
+ 
+(Filename:  Line: 140)
+
+Terrain splat 1 is null.
+ 
+(Filename:  Line: 140)
+
+Terrain splat 2 is null.
+ 
+(Filename:  Line: 140)
+
+Terrain splat 3 is null.
+ 
+(Filename:  Line: 140)
+
+A tree couldn't be loaded because the prefab is missing.
+Please select any instance of the New Terrain asset in a scene and make it reference only tree prefabs that exist.
+ 
+(Filename:  Line: 43)
+
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Boo.Lang.dll (this message is harmless)
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 740)
+

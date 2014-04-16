@@ -25,15 +25,27 @@ function startServer(){
 
 
 function spawnPlayer(ID){
-
+	var camera = GameObject.Find("Main Camera");
 	if(ID == 1)
-		Network.Instantiate(playerPrefab, spawnObj.position, Quaternion.identity, 0);
+	{
+		var player = Network.Instantiate(playerPrefab, spawnObj.position, Quaternion.identity, 0);
+		camera.transform.position = player.transform.position;
+		//camera.transform.LookAt(spawnObj);
+		
+		
+		
+		
+		
+	}
 	else
 	{
 	
 		var serverPos = spawnObj.position + new Vector3(3f,0,0);
 	
-		Network.Instantiate(playerPrefab, serverPos, Quaternion.identity, 0);
+		var client = Network.Instantiate(playerPrefab, serverPos, Quaternion.identity, 0);
+		
+		
+		camera.transform.position = client.transform.position;
 	}
 
 
@@ -43,12 +55,12 @@ function spawnPlayer(ID){
 
 function OnServerInitialized(){
 	Debug.Log("Server Initialized");
-	spawnPlayer(0);
+	spawnPlayer(1);
 
 }
 function OnConnectedToServer(){
 
-	spawnPlayer(1);
+	spawnPlayer(0);
 
 }
 
