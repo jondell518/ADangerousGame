@@ -24,10 +24,17 @@ function startServer(){
 }
 
 
-function spawnPlayer(){
+function spawnPlayer(ID){
 
-
-	Network.Instantiate(playerPrefab, spawnObj.position, Quaternion.identity, 0);
+	if(ID == 1)
+		Network.Instantiate(playerPrefab, spawnObj.position, Quaternion.identity, 0);
+	else
+	{
+	
+		var serverPos = spawnObj.position + new Vector3(3f,0,0);
+	
+		Network.Instantiate(playerPrefab, serverPos, Quaternion.identity, 0);
+	}
 
 
 }
@@ -36,12 +43,12 @@ function spawnPlayer(){
 
 function OnServerInitialized(){
 	Debug.Log("Server Initialized");
-	spawnPlayer();
+	spawnPlayer(0);
 
 }
 function OnConnectedToServer(){
 
-	spawnPlayer();
+	spawnPlayer(1);
 
 }
 
