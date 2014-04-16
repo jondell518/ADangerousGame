@@ -5,20 +5,14 @@ var useNAT = false;
 var yourIP = "";
 var yourPort = "";
 
-
 function startServer(){
 	Debug.Log("Starting Server!");
-	
 	Network.InitializeServer(32, listenPort, !Network.HavePublicAddress);
-	
-
 }
 
 function OnServerInitialized(){
 	Debug.Log("Server Initialized");
-
 }
-
 
 function OnGUI () {
 	// Checking if you are connected to the server or not
