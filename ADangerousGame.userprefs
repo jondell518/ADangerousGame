@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlayerScript.js">
+    <Files>
+      <File FileName="Assets\ConnectionGUI.js" Line="113" Column="3" />
+      <File FileName="Assets\PlayerScript.js" Line="6" Column="1" />
+      <File FileName="Assets\ConnectionGUI.js" Line="133" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
