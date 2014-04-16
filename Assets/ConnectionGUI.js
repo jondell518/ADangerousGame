@@ -30,7 +30,7 @@ function spawnPlayer(ID){
 	{
 		var player = Network.Instantiate(playerPrefab, spawnObj.position, Quaternion.identity, 0);
 		camera.transform.position = player.transform.position;
-		//camera.transform.LookAt(spawnObj);
+		camera.transform.LookAt(player.tranform.forward);
 		
 		
 		
@@ -46,6 +46,7 @@ function spawnPlayer(ID){
 		
 		
 		camera.transform.position = client.transform.position;
+		camera.transform.LookAt(client.tranform.forward);
 	}
 
 

@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\ConnectionGUI.js">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PlayerScript.js">
     <Files>
-      <File FileName="Assets\ConnectionGUI.js" Line="31" Column="93" />
-      <File FileName="Assets\PlayerScript.js" Line="21" Column="1" />
+      <File FileName="Assets\ConnectionGUI.js" Line="153" Column="1" />
+      <File FileName="Assets\ConnectionGUI.js" Line="27" Column="26" />
+      <File FileName="Assets\PlayerScript.js" Line="18" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -15,6 +15,7 @@ function Update () {
 		cc.Move(Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, -gravity * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime));
 		var camera = GameObject.Find("Main Camera");
 		camera.transform.position = cc.transform.position;
+		camera.transform.LookAt(transform.forward);
 	}
 	
 
