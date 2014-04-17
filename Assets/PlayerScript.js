@@ -63,44 +63,34 @@ function Update () {
 		Debug.Log("HUNTER WON");
 		
 		//Load hunter won screen, should be synced across all clients as well.
-		Application.LoadLevel("HunterWonScene");
+		//Application.LoadLevel("HunterWonScene");
 		networkView.RPC("loadLevel", RPCMode.AllBuffered, "HunterWonScene");
 	
 	}
 	
-	if(CG.gameState == 2){
-	
-		//Code for ending the game goes here, with a hunted victory
+		if(CG.gameState == 2){
 		
-		Debug.Log("HUNTED WON!");
+			//Code for ending the game goes here, with a hunted victory
+			
+			Debug.Log("HUNTED WON!");
+			
+			//Load hunted won screen, should be synced across all clients as well.
+			//Application.LoadLevel("HuntedWonScene");
+			networkView.RPC("loadLevel", RPCMode.AllBuffered, "HuntedWonScene");
 		
-		//Load hunted won screen, should be synced across all clients as well.
-		Application.LoadLevel("HuntedWonScene");
-		networkView.RPC("loadLevel", RPCMode.All, "HuntedWonScene");
-	
-	}
+		}
 
 	}
-	
-	
-
-	
-
-
-
-
 }
 
 @RPC
-function loadLevel(level) {
+function loadLevel(level : String) {
 	Application.LoadLevel(level);
 }
 
 //Should be the code that handles the collision of the players, but does not work yet
 function OnControllerColliderHit(hit: ControllerColliderHit){
 
-
-	Debug.Log(hit.gameObject.tag);
 	if(hit.collider.gameObject.tag == "Player")
 		Debug.Log("HIT ANOTHER PLAYER");
 

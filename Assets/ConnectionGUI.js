@@ -5,6 +5,7 @@ var useNAT = false;
 var yourIP = "";
 var yourPort = "";
 
+
 var playerPrefab: GameObject;
 var spawnObj: Transform;
 
