@@ -64,6 +64,7 @@ function Update () {
 		
 		//Load hunter won screen, should be synced across all clients as well.
 		Application.LoadLevel("HunterWonScene");
+		networkView.RPC("loadLevel", RPCMode.AllBuffered, "HunterWonScene");
 	
 	}
 	
@@ -75,6 +76,7 @@ function Update () {
 		
 		//Load hunted won screen, should be synced across all clients as well.
 		Application.LoadLevel("HuntedWonScene");
+		networkView.RPC("loadLevel", RPCMode.All, "HuntedWonScene");
 	
 	}
 
@@ -89,6 +91,10 @@ function Update () {
 
 }
 
+@RPC
+function loadLevel(level) {
+	Application.LoadLevel(level);
+}
 
 //Should be the code that handles the collision of the players, but does not work yet
 function OnControllerColliderHit(hit: ControllerColliderHit){
