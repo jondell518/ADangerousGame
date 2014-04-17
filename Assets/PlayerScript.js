@@ -8,6 +8,8 @@ var CG;
 
  var bulletPrefab: GameObject;
  var hunter: boolean = false;
+ 
+ 
 
 function Start () {
 
@@ -17,10 +19,14 @@ function Start () {
 	CG = temp.GetComponent("ConnectionGUI");
 	
 	
-	if(hunter)
+	if(hunter){
 			Debug.Log("You are the Hunter!");
-		else
+			//renderer.material = hunterMaterial;
+	}
+	else{
 			Debug.Log("You are being Hunted!");
+			//renderer.material = huntedMaterial;
+	}
 }
 
 function Update () {

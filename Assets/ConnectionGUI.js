@@ -7,7 +7,11 @@ var yourPort = "";
 
 
 var playerPrefab: GameObject;
-var spawnObj: Transform;
+var hunterSpawn: Transform;
+var huntedSpawn: Transform;
+
+var huntedMaterial: Material;
+var hunterMaterial: Material;
 
 var alreadySpawned = false;
 var lastSpawned = 0;
@@ -30,16 +34,18 @@ function startServer(){
 function spawnPlayer(ID){
 	var camera = GameObject.Find("Main Camera");
 	if(ID == 1){
-		var player = Network.Instantiate(playerPrefab, spawnObj.position, Quaternion.identity, 0);
+		var player = Network.Instantiate(playerPrefab, hunterSpawn.position, Quaternion.identity, 0);
 		var hunterVal = player.GetComponent("PlayerScript");
 		hunterVal.hunter = true;
+		player.renderer.material = hunterMaterial;
 		camera.transform.position = player.transform.position;
 		
 	}
 	else{
 	
-		var serverPos = spawnObj.position + new Vector3(3f,0,0);
-		var client = Network.Instantiate(playerPrefab, serverPos, Quaternion.identity, 0);
+		//var serverPos = spawnObj.position + new Vector3(3f,0,0);
+		var client = Network.Instantiate(playerPrefab, huntedSpawn.position, Quaternion.identity, 0);
+		client.renderer.material = huntedMaterial;
 		camera.transform.position = client.transform.position;
 	}
 
