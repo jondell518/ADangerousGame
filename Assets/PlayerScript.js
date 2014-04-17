@@ -4,10 +4,14 @@ var gravity = 5;
 var minimumY = -60F;
 var maximumY = 60F;
 private var cc:CharacterController;
+var CG;
 
 function Start () {
 
 	cc = GetComponent(CharacterController);
+	//locate the network manager object, which holds information on the game state
+	var temp = GameObject.Find("NetworkManager");
+	CG = temp.GetComponent("ConnectionGUI");
 }
 
 function Update () {
@@ -25,8 +29,56 @@ function Update () {
 
 	}
 	
+	if(CG.gameState == 1){
+	
+		//Code for ending the game goes here, with a hunter victory
+	
+	}
+	
+	if(CG.gameState == 2){
+	
+		//Code for ending the game goes here, with a hunted victory
+		
+		Debug.Log("HUNTED WON!");
+		
+		//Load hunted won screen, should be synced across all clients as well.
+		Application.LoadLevel("HuntedWonScene");
+	
+	}
+
+	
 
 
 
 
 }
+
+
+
+function OnControllerColliderHit(hit: ControllerColliderHit){
+
+
+	Debug.Log(hit.gameObject.tag);
+	if(hit.collider.gameObject.tag == "Player")
+		Debug.Log("HIT ANOTHER PLAYER");
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,6 +9,7 @@ var playerPrefab: GameObject;
 var spawnObj: Transform;
 
 private var refreshing: boolean;
+public var gameState = 0;
 private var hostData: HostData[];
 
 
