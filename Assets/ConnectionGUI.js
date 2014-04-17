@@ -56,12 +56,25 @@ function spawnPlayer(ID){
 
 function OnServerInitialized(){
 	Debug.Log("Server Initialized");
-	spawnPlayer(1);
+	
 
 }
-function OnConnectedToServer(){
 
+
+//These two functions allow the game to spawn players simultaneously
+//this function spawns the client player
+function OnConnectedToServer(){
+	
+	
+	
 	spawnPlayer(0);
+
+}
+
+//this function spawns the server player
+function OnPlayerConnected(){
+
+	spawnPlayer(1);
 
 }
 
