@@ -1,19 +1,29 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{796C7208-3F04-3862-7144-60E05636DDE0}") = "ADangerousGame", "Assembly-CSharp-firstpass-vs.csproj", "{5C55CBB8-ABE5-6A07-47E3-6DF6A8837D73}"
+EndProject
+Project("{796C7208-3F04-3862-7144-60E05636DDE0}") = "ADangerousGame", "Assembly-CSharp-vs.csproj", "{BCC3096A-7862-4A4F-6F11-0497A3080DF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{5C55CBB8-ABE5-6A07-47E3-6DF6A8837D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C55CBB8-ABE5-6A07-47E3-6DF6A8837D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C55CBB8-ABE5-6A07-47E3-6DF6A8837D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C55CBB8-ABE5-6A07-47E3-6DF6A8837D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCC3096A-7862-4A4F-6F11-0497A3080DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCC3096A-7862-4A4F-6F11-0497A3080DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCC3096A-7862-4A4F-6F11-0497A3080DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCC3096A-7862-4A4F-6F11-0497A3080DF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																		GlobalSection(MonoDevelopProperties) = preSolution
+																						GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

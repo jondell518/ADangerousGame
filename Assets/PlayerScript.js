@@ -1,7 +1,8 @@
 ﻿var speed: int = 5;
 var gravity = 5;
 
-
+var minimumY = -60F;
+var maximumY = 60F;
 private var cc:CharacterController;
 
 function Start () {
@@ -12,10 +13,16 @@ function Start () {
 function Update () {
 
 	if(networkView.isMine){
-		cc.Move(Vector3(Input.GetAxis("Horizontal") * speed * Time.deltaTime, -gravity * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime));
+
+		cc.transform.Rotate(0, Input.GetAxis ("Mouse X"), 0);
+		var moveDir = new Vector3(Input.GetAxis("Horizontal") * speed, -gravity, Input.GetAxis("Vertical") * speed);
+		var direction = transform.TransformDirection(moveDir);
+		cc.Move(direction * Time.deltaTime);
 		var camera = GameObject.Find("Main Camera");
+		
 		camera.transform.position = cc.transform.position;
-		camera.transform.LookAt(transform.forward);
+		camera.transform.forward = cc.transform.forward;
+
 	}
 	
 
