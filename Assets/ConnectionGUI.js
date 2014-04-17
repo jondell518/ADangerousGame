@@ -64,6 +64,7 @@ function OnConnectedToServer(){
 		
 		//last spawned contains the ID of the last spawned player, so 1-lastSpawned gives the other character
 		spawnPlayer(1-lastSpawned);
+		Debug.Log(lastSpawned);
 		
 		
 		
@@ -74,6 +75,7 @@ function OnConnectedToServer(){
 		spawnPlayer(playerID);
 		alreadySpawned = true; //set already spawned to true 
 		lastSpawned = playerID; //set lastSpawned to playerID for the next player to spawn
+		Debug.Log(lastSpawned);
 	
 	}
 
@@ -86,7 +88,7 @@ function OnPlayerConnected(){
 		
 		
 		spawnPlayer(1-lastSpawned);
-		
+		Debug.Log(lastSpawned);
 		
 		
 	}
@@ -96,6 +98,7 @@ function OnPlayerConnected(){
 		spawnPlayer(playerID);
 		alreadySpawned = true;
 		lastSpawned = playerID;
+		Debug.Log(lastSpawned);
 	}
 
 }
