@@ -8,6 +8,10 @@ var yourPort = "";
 var playerPrefab: GameObject;
 var spawnObj: Transform;
 
+var alreadySpawned = false;
+var lastSpawned = 0;
+
+
 private var refreshing: boolean;
 public var gameState = 0;
 private var hostData: HostData[];
@@ -17,35 +21,24 @@ private var hostData: HostData[];
 
 function startServer(){
 	Debug.Log("Starting Server!");
-	
 	Network.InitializeServer(32, listenPort, !Network.HavePublicAddress);
 	MasterServer.RegisterHost("ADANGEROUSGAME", "My Game", "");
-	
-
 }
 
 
 function spawnPlayer(ID){
 	var camera = GameObject.Find("Main Camera");
-	if(ID == 1)
-	{
+	if(ID == 1){
 		var player = Network.Instantiate(playerPrefab, spawnObj.position, Quaternion.identity, 0);
+		var hunterVal = player.GetComponent("PlayerScript");
+		hunterVal.hunter = true;
 		camera.transform.position = player.transform.position;
 		
-		
-		
-		
-		
-		
 	}
-	else
-	{
+	else{
 	
 		var serverPos = spawnObj.position + new Vector3(3f,0,0);
-	
 		var client = Network.Instantiate(playerPrefab, serverPos, Quaternion.identity, 0);
-		
-		
 		camera.transform.position = client.transform.position;
 	}
 
@@ -66,15 +59,44 @@ function OnServerInitialized(){
 function OnConnectedToServer(){
 	
 	
+	//check to see if a player has already been spawned, if so this player must be the other character
+	if(alreadySpawned){
+		
+		//last spawned contains the ID of the last spawned player, so 1-lastSpawned gives the other character
+		spawnPlayer(1-lastSpawned);
+		
+		
+		
+	}
+	else{
+		//if this is the first spawned player, generate a random player ID, either 1 or 0
+		var playerID = Mathf.Round(Random.value);
+		spawnPlayer(playerID);
+		alreadySpawned = true; //set already spawned to true 
+		lastSpawned = playerID; //set lastSpawned to playerID for the next player to spawn
 	
-	spawnPlayer(0);
+	}
 
 }
 
 //this function spawns the server player
 function OnPlayerConnected(){
 
-	spawnPlayer(1);
+	if(alreadySpawned){
+		
+		
+		spawnPlayer(1-lastSpawned);
+		
+		
+		
+	}
+	else{
+		
+		var playerID = Mathf.Round(Random.value);
+		spawnPlayer(playerID);
+		alreadySpawned = true;
+		lastSpawned = playerID;
+	}
 
 }
 

@@ -7,6 +7,7 @@ private var cc:CharacterController;
 var CG;
 
  var bulletPrefab: GameObject;
+ var hunter: boolean = false;
 
 function Start () {
 
@@ -14,10 +15,17 @@ function Start () {
 	//locate the network manager object, which holds information on the game state
 	var temp = GameObject.Find("NetworkManager");
 	CG = temp.GetComponent("ConnectionGUI");
+	
+	
+	if(hunter)
+			Debug.Log("You are the Hunter!");
+		else
+			Debug.Log("You are being Hunted!");
 }
 
 function Update () {
 
+	//only allow the client controlling this player to use it
 	if(networkView.isMine){
 
 		cc.transform.Rotate(0, Input.GetAxis ("Mouse X"), 0);
@@ -30,15 +38,22 @@ function Update () {
 		camera.transform.forward = cc.transform.forward;
 	
 	
+		var ray: Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		//ray call for debugging/testing purposes
+		if(hunter)
+			Debug.DrawRay(transform.position,ray.direction * 10, Color.yellow);
 	
-		if(Input.GetMouseButton(0)){
-			var ray: Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	
+		//handle the firing the gun, draw a ray based on the mouse position, if the ray collides with the hunted then its a hit
+		if(Input.GetMouseButton(0) && hunter){
+			
 			var hit: RaycastHit;
+			 
 			if(Physics.Raycast(ray, hit, 10)){
-				if(hit.collider.gameObject.tag == "Player")
+				if(hit.collider.gameObject.tag == "Player" && !hit.collider.gameObject.GetComponent("PlayerScript").hunter)
 					Debug.Log("Hit the player");
 					CG.gameState = 1;
-					Debug.Log(CG.gameState);
+					//Debug.Log(CG.gameState);
 			}
 		}
 		
@@ -75,7 +90,7 @@ function Update () {
 }
 
 
-
+//Should be the code that handles the collision of the players, but does not work yet
 function OnControllerColliderHit(hit: ControllerColliderHit){
 
 
