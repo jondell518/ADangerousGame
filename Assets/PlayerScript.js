@@ -6,6 +6,8 @@ var maximumY = 60F;
 private var cc:CharacterController;
 var CG;
 
+ var bulletPrefab: GameObject;
+
 function Start () {
 
 	cc = GetComponent(CharacterController);
@@ -26,12 +28,27 @@ function Update () {
 		
 		camera.transform.position = cc.transform.position;
 		camera.transform.forward = cc.transform.forward;
-
-	}
 	
-	if(CG.gameState == 1){
+	
+	
+		if(Input.GetMouseButton(0)){
+			var ray: Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			var hit: RaycastHit;
+			if(Physics.Raycast(ray, hit, 10)){
+				if(hit.collider.gameObject.tag == "Player")
+					Debug.Log("Hit the player");
+					CG.gameState = 1;
+					Debug.Log(CG.gameState);
+			}
+		}
+		
+		if(CG.gameState == 1){
 	
 		//Code for ending the game goes here, with a hunter victory
+		Debug.Log("HUNTER WON");
+		
+		//Load hunter won screen, should be synced across all clients as well.
+		Application.LoadLevel("HunterWonScene");
 	
 	}
 	
@@ -45,6 +62,10 @@ function Update () {
 		Application.LoadLevel("HuntedWonScene");
 	
 	}
+
+	}
+	
+	
 
 	
 
