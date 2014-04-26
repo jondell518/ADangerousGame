@@ -17,7 +17,7 @@ Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\M
 Loading C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
 Loading C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.094 seconds
+- Completed reload, in  0.102 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -44,11 +44,19 @@ Please select any instance of the New Terrain asset in a scene and make it refer
 
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Boo.Lang.dll (this message is harmless)
-0
+Starting Server!
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
-You are being Hunted!
+Server Initialized
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Host registered!
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+You are the Hunter!
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
@@ -57,3 +65,11 @@ You are being Hunted!
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
+Host registered!
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+Host registered!
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+

@@ -34,7 +34,7 @@ function Update () {
 	//only allow the client controlling this player to use it
 	if(networkView.isMine){
 
-		cc.transform.Rotate(0, Input.GetAxis ("Mouse X"), 0);
+		cc.transform.Rotate(0, Input.GetAxis ("Mouse X")*2f, 0);
 		var moveDir = new Vector3(Input.GetAxis("Horizontal") * speed, -gravity, Input.GetAxis("Vertical") * speed);
 		var direction = transform.TransformDirection(moveDir);
 		cc.Move(direction * Time.deltaTime);
