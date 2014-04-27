@@ -1,5 +1,12 @@
 ﻿
 private var cc:CharacterController;
+var rotationY = 0F;
+var sensitivityX = 15F;
+var sensitivityY = 15F;
+var minimumX = -360F;
+var maximumX = 360F;
+var minimumY = -60F;
+var maximumY = 60F;
 function Awake(){
 
 
@@ -26,10 +33,15 @@ function Update () {
 		//cam.enabled = false;
 		
 		var camera = GameObject.Find("Main Camera");
-		//camera.GetComponent("MouseLook").enabled = true;
 		
 		camera.transform.position = cc.transform.position;
 		camera.transform.forward = cc.transform.forward;
+		
+		rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+		rotationY = Mathf.Clamp (rotationY, minimumY, maximumY);
+			
+		camera.transform.Rotate(-rotationY, 0, 0);
+		cc.transform.Rotate(0, Input.GetAxis ("Mouse X")*sensitivityX, 0);
 		
 	}
 	else {
