@@ -6,15 +6,9 @@ var maximumY = 60F;
 private var cc:CharacterController;
 var CG;
 
-<<<<<<< HEAD
  var bulletPrefab : GameObject;
  var hunter : boolean = false;
-=======
- var bulletPrefab: GameObject;
- var hunter: boolean = false;
- 
- 
->>>>>>> 42788deeff5062f5abd7c50b7389e82a935a96ef
+
 
 function Start () {
 
@@ -24,12 +18,7 @@ function Start () {
 	CG = temp.GetComponent("ConnectionGUI");
 	
 	
-<<<<<<< HEAD
-	if(hunter) {
-			Debug.Log("You are the Hunter!");
-	} else {
-			Debug.Log("You are being Hunted!");
-=======
+
 	if(hunter){
 			Debug.Log("You are the Hunter!");
 			//renderer.material = hunterMaterial;
@@ -37,7 +26,7 @@ function Start () {
 	else{
 			Debug.Log("You are being Hunted!");
 			//renderer.material = huntedMaterial;
->>>>>>> 42788deeff5062f5abd7c50b7389e82a935a96ef
+
 	}
 }
 
@@ -46,11 +35,8 @@ function Update () {
 	//only allow the client controlling this player to use it
 	if(networkView.isMine){
 
-<<<<<<< HEAD
-		cc.transform.Rotate(0, Input.GetAxis ("Mouse X") * 2, 0);
-=======
 		cc.transform.Rotate(0, Input.GetAxis ("Mouse X")*2f, 0);
->>>>>>> 42788deeff5062f5abd7c50b7389e82a935a96ef
+
 		var moveDir = new Vector3(Input.GetAxis("Horizontal") * speed, -gravity, Input.GetAxis("Vertical") * speed);
 		var direction = transform.TransformDirection(moveDir);
 		cc.Move(direction * Time.deltaTime);

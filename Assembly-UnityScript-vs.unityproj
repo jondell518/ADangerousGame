@@ -49,6 +49,7 @@
      <Compile Include="Assets\BoatTriggerScript.js" />
      <Compile Include="Assets\ConnectionGUI.js" />
      <Compile Include="Assets\MouseController.js" />
+     <Compile Include="Assets\PlayerDisableScript.js" />
      <Compile Include="Assets\PlayerScript.js" />
      <Compile Include="Assets\SpawnScript.js" />
      <None Include="Assets\Destroyed_city_FREE\Destroyed_city_FREE_Info.txt" />
