@@ -52,7 +52,7 @@ function spawnPlayer(ID : int){
 	var camera = GameObject.Find("Main Camera");
 	if(ID == 1){
 		var player = Network.Instantiate(playerPrefab, new Vector3(953.9844, 12.14996, 969.1106), Quaternion.identity, 0);
-		var hunterVal = player.GetComponent("PlayerScript");
+		var hunterVal = player.GetComponent("PlayerDisableScript");
 		hunterVal.hunter = true;
 		camera.transform.position = player.transform.position;
 

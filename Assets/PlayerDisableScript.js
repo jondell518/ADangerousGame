@@ -6,7 +6,9 @@ var sensitivityY = 15F;
 var minimumX = -360F;
 var maximumX = 360F;
 var minimumY = -60F;
-var maximumY = 60F;
+var maximumY = 60F; 
+var hunter : boolean = false;
+
 function Awake(){
 
 
@@ -17,6 +19,18 @@ function Start () {
 
 
 	cc = GetComponent(CharacterController);
+	
+	if(hunter){
+			Debug.Log("You are the Hunter!");
+			GUI.Label(new Rect(400,20,250,40), "You are the hunter!");
+			//renderer.material = hunterMaterial;
+		}
+		else{
+			Debug.Log("You are being Hunted!");
+			GUI.Label(new Rect(400,20,250,40), "You are the hunted!");
+			//renderer.material = huntedMaterial;
+
+		}
 	
 
 
@@ -42,6 +56,10 @@ function Update () {
 			
 		camera.transform.Rotate(-rotationY, 0, 0);
 		cc.transform.Rotate(0, Input.GetAxis ("Mouse X")*sensitivityX, 0);
+		
+		
+		
+		
 		
 	}
 	else {
