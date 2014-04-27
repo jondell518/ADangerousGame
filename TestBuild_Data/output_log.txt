@@ -17,7 +17,7 @@ Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\M
 Loading C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
 Loading C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.102 seconds
+- Completed reload, in  0.068 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -44,32 +44,13 @@ Please select any instance of the New Terrain asset in a scene and make it refer
 
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Boo.Lang.dll (this message is harmless)
-Starting Server!
+NullReferenceException: Object reference not set to an instance of an object
+  at ConnectionGUI.spawnPlayer (System.Object ID) [0x00000] in <filename unknown>:0 
+  at ConnectionGUI.OnConnectedToServer () [0x00000] in <filename unknown>:0 
  
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+(Filename:  Line: -1)
 
-Server Initialized
+The server has disconnected from the client. Most likely the server has shut down.
  
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Host registered!
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-You are the Hunter!
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-You are being Hunted!
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
-Host registered!
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
-
-Host registered!
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+(Filename:  Line: 740)
 

@@ -37,7 +37,7 @@ function spawnPlayer(ID){
 		var player = Network.Instantiate(playerPrefab, hunterSpawn.position, Quaternion.identity, 0);
 		var hunterVal = player.GetComponent("PlayerScript");
 		hunterVal.hunter = true;
-		//player.renderer.material = hunterMaterial;
+		player.renderer.material = hunterMaterial;
 		camera.transform.position = player.transform.position;
 		
 	}
@@ -45,7 +45,7 @@ function spawnPlayer(ID){
 	
 		//var serverPos = spawnObj.position + new Vector3(3f,0,0);
 		var client = Network.Instantiate(playerPrefab, huntedSpawn.position, Quaternion.identity, 0);
-		//client.renderer.material = huntedMaterial;
+		client.renderer.material = huntedMaterial;
 		camera.transform.position = client.transform.position;
 	}
 
@@ -64,27 +64,8 @@ function OnServerInitialized(){
 //These two functions allow the game to spawn players simultaneously
 //this function spawns the client player
 function OnConnectedToServer(){
+
 	
-	
-	//check to see if a player has already been spawned, if so this player must be the other character
-	/*if(alreadySpawned){
-		
-		//last spawned contains the ID of the last spawned player, so 1-lastSpawned gives the other character
-		spawnPlayer(1-lastSpawned);
-		Debug.Log(lastSpawned);
-		
-		
-		
-	}
-	else{
-		//if this is the first spawned player, generate a random player ID, either 1 or 0
-		var playerID = Mathf.Round(Random.value);
-		spawnPlayer(playerID);
-		alreadySpawned = true; //set already spawned to true 
-		lastSpawned = playerID; //set lastSpawned to playerID for the next player to spawn
-		Debug.Log(lastSpawned);
-	
-	}*/
 	
 	
 	spawnPlayer(0);
@@ -94,22 +75,6 @@ function OnConnectedToServer(){
 //this function spawns the server player
 function OnPlayerConnected(){
 
-	/*if(alreadySpawned){
-		
-		
-		spawnPlayer(1-lastSpawned);
-		Debug.Log(lastSpawned);
-		
-		
-	}
-	else{
-		
-		var playerID = Mathf.Round(Random.value);
-		spawnPlayer(playerID);
-		alreadySpawned = true;
-		lastSpawned = playerID;
-		Debug.Log(lastSpawned);
-	}*/
 	
 	spawnPlayer(1);
 
