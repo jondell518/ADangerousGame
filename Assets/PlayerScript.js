@@ -1,4 +1,4 @@
-﻿var speed: int = 5;
+﻿var speed: int = 10;
 var gravity = 5;
 
 var minimumY = -60F;
@@ -6,8 +6,8 @@ var maximumY = 60F;
 private var cc:CharacterController;
 var CG;
 
- var bulletPrefab: GameObject;
- var hunter: boolean = false;
+ var bulletPrefab : GameObject;
+ var hunter : boolean = false;
 
 function Start () {
 
@@ -17,10 +17,11 @@ function Start () {
 	CG = temp.GetComponent("ConnectionGUI");
 	
 	
-	if(hunter)
+	if(hunter) {
 			Debug.Log("You are the Hunter!");
-		else
+	} else {
 			Debug.Log("You are being Hunted!");
+	}
 }
 
 function Update () {
@@ -28,7 +29,7 @@ function Update () {
 	//only allow the client controlling this player to use it
 	if(networkView.isMine){
 
-		cc.transform.Rotate(0, Input.GetAxis ("Mouse X"), 0);
+		cc.transform.Rotate(0, Input.GetAxis ("Mouse X") * 2, 0);
 		var moveDir = new Vector3(Input.GetAxis("Horizontal") * speed, -gravity, Input.GetAxis("Vertical") * speed);
 		var direction = transform.TransformDirection(moveDir);
 		cc.Move(direction * Time.deltaTime);
@@ -40,10 +41,7 @@ function Update () {
 	
 		var ray: Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		//ray call for debugging/testing purposes
-		if(hunter)
-			Debug.DrawRay(transform.position,ray.direction * 10, Color.yellow);
-	
-	
+		
 		//handle the firing the gun, draw a ray based on the mouse position, if the ray collides with the hunted then its a hit
 		if(Input.GetMouseButton(0) && hunter){
 			
@@ -87,6 +85,15 @@ function Update () {
 function loadLevel(level : String) {
 	Application.LoadLevel(level);
 }
+
+function OnGUI() {
+	if(hunter) {
+			GUI.TextField(new Rect(230,10,200,20),"You are the hunter! Find the other player and shoot them (Mouse click)");
+			//Debug.DrawRay(transform.position,ray.direction * 10, Color.yellow);
+	} else {
+		GUI.TextField(new Rect(230,10,200,20),"You are the hunted! Reach the pole without getting killed!");
+	}
+}	
 
 //Should be the code that handles the collision of the players, but does not work yet
 function OnControllerColliderHit(hit: ControllerColliderHit){

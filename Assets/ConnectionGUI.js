@@ -5,20 +5,24 @@ var useNAT = false;
 var yourIP = "";
 var yourPort = "";
 
-
+//var posArray = { new Vector3(953.9844, 12.14996, 969.1106), new Vector3(886.1172, 12.14996, 973.1924) };
 var playerPrefab: GameObject;
 var spawnObj: Transform;
 
 var alreadySpawned = false;
 var lastSpawned = 0;
 
+var clientPlayer : NetworkPlayer; 
+var clientConnected = false;
+private var playerArray = [];
 
 private var refreshing: boolean;
 public var gameState = 0;
 private var hostData: HostData[];
 
-
-
+var roundTimer = 0f;
+var lobbyTimer = 0f;
+var roundActive = false;
 
 function startServer(){
 	Debug.Log("Starting Server!");
@@ -26,85 +30,58 @@ function startServer(){
 	MasterServer.RegisterHost("ADANGEROUSGAME", "My Game", "");
 }
 
+function initRound() {
+	roundTimer = 300;
+	spawnPlayers();
+	roundActive = true;
+}
 
-function spawnPlayer(ID){
+function endRound() {
+	//TODO
+	Debug.Log("Ending Round");
+}
+
+function spawnPlayers() {
+	Debug.Log("Spawning players");
+	var serverPlayerRole : int = 0;
+	var clientPlayerRole : int = 1;
+	spawnPlayer(serverPlayerRole);
+	networkView.RPC("spawnPlayer", clientPlayer, clientPlayerRole);
+}
+		
+@RPC
+function spawnPlayer(ID : int){
 	var camera = GameObject.Find("Main Camera");
 	if(ID == 1){
-		var player = Network.Instantiate(playerPrefab, spawnObj.position, Quaternion.identity, 0);
+		var player = Network.Instantiate(playerPrefab, new Vector3(953.9844, 12.14996, 969.1106), Quaternion.identity, 0);
 		var hunterVal = player.GetComponent("PlayerScript");
 		hunterVal.hunter = true;
 		camera.transform.position = player.transform.position;
 		
-	}
-	else{
-	
+	} else {
 		var serverPos = spawnObj.position + new Vector3(3f,0,0);
-		var client = Network.Instantiate(playerPrefab, serverPos, Quaternion.identity, 0);
+		var client = Network.Instantiate(playerPrefab, new Vector3(940.1172, 12.14996, 973.1924), Quaternion.identity, 0);
 		camera.transform.position = client.transform.position;
 	}
-
-
 }
-
-
 
 function OnServerInitialized(){
 	Debug.Log("Server Initialized");
-	
-
 }
-
 
 //These two functions allow the game to spawn players simultaneously
 //this function spawns the client player
 function OnConnectedToServer(){
-	
-	
-	//check to see if a player has already been spawned, if so this player must be the other character
-	if(alreadySpawned){
-		
-		//last spawned contains the ID of the last spawned player, so 1-lastSpawned gives the other character
-		spawnPlayer(1-lastSpawned);
-		Debug.Log(lastSpawned);
-		
-		
-		
-	}
-	else{
-		//if this is the first spawned player, generate a random player ID, either 1 or 0
-		var playerID = Mathf.Round(Random.value);
-		spawnPlayer(playerID);
-		alreadySpawned = true; //set already spawned to true 
-		lastSpawned = playerID; //set lastSpawned to playerID for the next player to spawn
-		Debug.Log(lastSpawned);
-	
-	}
+	Debug.Log("Connected to Server :-)");
 
 }
 
 //this function spawns the server player
-function OnPlayerConnected(){
-
-	if(alreadySpawned){
-		
-		
-		spawnPlayer(1-lastSpawned);
-		Debug.Log(lastSpawned);
-		
-		
-	}
-	else{
-		
-		var playerID = Mathf.Round(Random.value);
-		spawnPlayer(playerID);
-		alreadySpawned = true;
-		lastSpawned = playerID;
-		Debug.Log(lastSpawned);
-	}
-
+function OnPlayerConnected(player : NetworkPlayer){
+	clientPlayer = player;
+	clientConnected = true;
+	Debug.Log(player);
 }
-
-
 
 function OnMasterServerEvent(mse:MasterServerEvent){
 
@@ -118,31 +95,31 @@ function OnMasterServerEvent(mse:MasterServerEvent){
 }
 
 function refreshHostList(){
-
 	MasterServer.RequestHostList("ADANGEROUSGAME");
 	refreshing = true;
-
-
-
-
 }
 
-function update(){
+function Update(){
 	if(refreshing){
 		if(MasterServer.PollHostList().Length > 0){
 			refreshing = false;
 			Debug.Log(MasterServer.PollHostList().Length);
 			hostData = MasterServer.PollHostList();
-		
 		}
-			
-	}	
-	
-
-
-
+	}
+	if(Network.isServer && !roundActive) {	
+		if(clientConnected) {
+			Debug.Log("Starting round");
+			initRound();
+		}
+	}
+	if(roundActive) {
+		roundTimer -= Time.deltaTime;
+		if(roundTimer <= 0) {
+			endRound();
+		}
+	}
 }
-
 
 function OnGUI () {
 	// Checking if you are connected to the server or not
@@ -151,10 +128,6 @@ function OnGUI () {
 	
 		if (GUI.Button (new Rect(10,10,100,30),"Connect")) {
 			Network.Connect(remoteIP, remotePort);
-			
-					
-			
-			
 		}
 		if (GUI.Button (new Rect(10,50,100,30),"Start Server")) {
 			startServer();
@@ -170,7 +143,7 @@ function OnGUI () {
 		remoteIP = GUI.TextField(new Rect(120,10,100,20),remoteIP);
 		remotePort = parseInt(GUI.TextField(new 
 		Rect(230,10,40,20),remotePort.ToString()));
-	} else {
+	} else if(!roundActive) {
 		// Getting your ip address and port
 		ipaddress = Network.player.ipAddress;
 		port = Network.player.port.ToString();
