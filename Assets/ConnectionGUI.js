@@ -7,7 +7,11 @@ var yourPort = "";
 
 //var posArray = { new Vector3(953.9844, 12.14996, 969.1106), new Vector3(886.1172, 12.14996, 973.1924) };
 var playerPrefab: GameObject;
-var spawnObj: Transform;
+var hunterSpawn: Transform;
+var huntedSpawn: Transform;
+
+var huntedMaterial: Material;
+var hunterMaterial: Material;
 
 var alreadySpawned = false;
 var lastSpawned = 0;
@@ -53,14 +57,28 @@ function spawnPlayers() {
 function spawnPlayer(ID : int){
 	var camera = GameObject.Find("Main Camera");
 	if(ID == 1){
+<<<<<<< HEAD
 		var player = Network.Instantiate(playerPrefab, new Vector3(953.9844, 12.14996, 969.1106), Quaternion.identity, 0);
+=======
+		var player = Network.Instantiate(playerPrefab, hunterSpawn.position, Quaternion.identity, 0);
+>>>>>>> 42788deeff5062f5abd7c50b7389e82a935a96ef
 		var hunterVal = player.GetComponent("PlayerScript");
 		hunterVal.hunter = true;
+		player.renderer.material = hunterMaterial;
 		camera.transform.position = player.transform.position;
 		
+<<<<<<< HEAD
 	} else {
 		var serverPos = spawnObj.position + new Vector3(3f,0,0);
 		var client = Network.Instantiate(playerPrefab, new Vector3(940.1172, 12.14996, 973.1924), Quaternion.identity, 0);
+=======
+	}
+	else{
+	
+		//var serverPos = spawnObj.position + new Vector3(3f,0,0);
+		var client = Network.Instantiate(playerPrefab, huntedSpawn.position, Quaternion.identity, 0);
+		client.renderer.material = huntedMaterial;
+>>>>>>> 42788deeff5062f5abd7c50b7389e82a935a96ef
 		camera.transform.position = client.transform.position;
 	}
 }
@@ -72,15 +90,31 @@ function OnServerInitialized(){
 //These two functions allow the game to spawn players simultaneously
 //this function spawns the client player
 function OnConnectedToServer(){
+<<<<<<< HEAD
 	Debug.Log("Connected to Server :-)");
+=======
+
+	
+	
+	
+	spawnPlayer(0);
+>>>>>>> 42788deeff5062f5abd7c50b7389e82a935a96ef
 
 }
 
 //this function spawns the server player
+<<<<<<< HEAD
 function OnPlayerConnected(player : NetworkPlayer){
 	clientPlayer = player;
 	clientConnected = true;
 	Debug.Log(player);
+=======
+function OnPlayerConnected(){
+
+	
+	spawnPlayer(1);
+
+>>>>>>> 42788deeff5062f5abd7c50b7389e82a935a96ef
 }
 
 function OnMasterServerEvent(mse:MasterServerEvent){
