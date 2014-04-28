@@ -46,12 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BoatTriggerScript.js" />
-     <Compile Include="Assets\ConnectionGUI.js" />
-     <Compile Include="Assets\MouseController.js" />
-     <Compile Include="Assets\PlayerDisableScript.js" />
-     <Compile Include="Assets\PlayerScript.js" />
-     <Compile Include="Assets\SpawnScript.js" />
+     <Compile Include="Assets\Scripts\BoatTriggerScript.js" />
+     <Compile Include="Assets\Scripts\ConnectionGUI.js" />
+     <Compile Include="Assets\Scripts\PlayerDisableScript.js" />
+     <Compile Include="Assets\Scripts\PlayerScript.js" />
      <None Include="Assets\Destroyed_city_FREE\Destroyed_city_FREE_Info.txt" />
      <None Include="Assets\Destroyed_city_FREE\Standard Assets\Water (Pro Only)\Sources\Shaders\FX-Water.shader" />
      <None Include="Assets\Destroyed_city_FREE\Shaders\AlphaTest-DiffuseDoubleSide.shader" />
