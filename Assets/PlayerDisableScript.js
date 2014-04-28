@@ -22,12 +22,12 @@ function Start () {
 	
 	if(hunter){
 			Debug.Log("You are the Hunter!");
-			GUI.Label(new Rect(400,20,250,40), "You are the hunter!");
+			//GUI.Label(new Rect(400,20,250,40), "You are the hunter!");
 			//renderer.material = hunterMaterial;
 		}
 		else{
 			Debug.Log("You are being Hunted!");
-			GUI.Label(new Rect(400,20,250,40), "You are the hunted!");
+			//GUI.Label(new Rect(400,20,250,40), "You are the hunted!");
 			//renderer.material = huntedMaterial;
 
 		}
@@ -57,6 +57,23 @@ function Update () {
 		camera.transform.Rotate(-rotationY, 0, 0);
 		cc.transform.Rotate(0, Input.GetAxis ("Mouse X")*sensitivityX, 0);
 		
+		
+		var ray: Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		Debug.DrawRay(transform.position,ray.direction*100, Color.yellow);
+		//ray call for debugging/testing purposes
+		
+		//handle the firing the gun, draw a ray based on the mouse position, if the ray collides with the hunted then its a hit
+		if(Input.GetMouseButton(0) && hunter){
+			Debug.Log("FIRING");
+			var hit: RaycastHit;
+			
+			if(Physics.Raycast(ray, hit, 10)){
+				if(hit.collider.gameObject.tag == "player" && !hit.collider.gameObject.GetComponent("PlayerDisableScript").hunter)
+					Debug.Log("Hit the player");
+					//CG.gameState = 1;
+					//Debug.Log(CG.gameState);
+			}
+		}
 		
 		
 		
