@@ -128,15 +128,6 @@ function Update () {
 @RPC
 function loadLevel(level : String) {
 	Application.LoadLevel(level);
-}
-
-function OnGUI() {
-	if(hunter) {
-			GUI.TextField(new Rect(230,10,200,20),"You are the hunter! Find the other player and shoot them (Mouse click)");
-			//Debug.DrawRay(transform.position,ray.direction * 10, Color.yellow);
-	} else {
-		GUI.TextField(new Rect(230,10,200,20),"You are the hunted! Reach the pole without getting killed!");
-	}
 }	
 
 //Should be the code that handles the collision of the players, but does not work yet

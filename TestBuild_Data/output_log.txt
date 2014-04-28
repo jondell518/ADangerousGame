@@ -17,7 +17,7 @@ Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\M
 Loading C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
 Loading C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.325 seconds
+- Completed reload, in  0.095 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -57,9 +57,17 @@ You are the Hunter!
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
 
 Platform assembly: C:\Users\Jon\Documents\GitHub\ADangerousGame\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
-UnloadTime: 5.417514 ms
+TRIGGER CALLED
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+HUNTED WON!
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+UnloadTime: 12.096703 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 86 unused Assets to reduce memory usage. Loaded Objects now: 136.
-Total: 2.339052 ms (FindLiveObjects: 0.014928 ms CreateObjectMapping: 0.010729 ms MarkObjects: 0.142750 ms  DeleteObjects: 1.602908 ms)
+Total: 5.006432 ms (FindLiveObjects: 0.028922 ms CreateObjectMapping: 0.016327 ms MarkObjects: 0.278031 ms  DeleteObjects: 3.697912 ms)
 
