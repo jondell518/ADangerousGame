@@ -51,7 +51,7 @@ function spawnPlayers() {
 function spawnPlayer(ID : int){
 	var camera = GameObject.Find("Main Camera");
 	if(ID == 1){
-		var player = Network.Instantiate(playerPrefab, new Vector3(953.9844, 12.14996, 969.1106), Quaternion.identity, 0);
+		var player = Network.Instantiate(playerPrefab, new Vector3(1554.502, 114.8779, 791.5316), Quaternion.identity, 0);
 		var hunterVal = player.GetComponent("PlayerDisableScript");
 		hunterVal.hunter = true;
 		camera.transform.position = player.transform.position;
@@ -60,7 +60,7 @@ function spawnPlayer(ID : int){
 	else{
 	
 		//var serverPos = spawnObj.position + new Vector3(3f,0,0);
-		var client = Network.Instantiate(playerPrefab, new Vector3(940.1172, 12.14996, 973.1924), Quaternion.identity, 0);
+		var client = Network.Instantiate(playerPrefab, new Vector3(1507.119, 116.565, 906.2426), Quaternion.identity, 0);
 
 		camera.transform.position = client.transform.position;
 	}

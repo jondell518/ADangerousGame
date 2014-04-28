@@ -70,11 +70,11 @@ function Update () {
 			Debug.Log("FIRING");
 			var hit: RaycastHit;
 			
-			if(Physics.Raycast(ray, hit, 10)){
+			if(Physics.Raycast(ray, hit, 100)){
 				if(hit.collider.gameObject.tag == "player" && !hit.collider.gameObject.GetComponent("PlayerDisableScript").hunter)
 					Debug.Log("Hit the player");
-					//CG.gameState = 1;
-					//Debug.Log(CG.gameState);
+					CG.gameState = 1;
+					Debug.Log(CG.gameState);
 			}
 		}
 		
